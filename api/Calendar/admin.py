@@ -11,3 +11,7 @@ class EventTypeAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
   list_display = ('event', 'init_date', 'start_time', 'end_date', 'end_time')
   list_filter = ['visibility']
+
+@admin.register(CalendarModels.EventPresence)
+class EventPresenceAdmin(admin.ModelAdmin):
+  list_display = ('id', 'event', 'user', 'presence_confirmation')
