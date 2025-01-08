@@ -16,6 +16,9 @@ class Balance(models.Model):
   created_in = models.DateTimeField(auto_now_add=True)
   updated_in = models.DateTimeField(auto_now=True)
 
+  def __str__(self):
+    return str(self.balance)
+
 class CashFlow(models.Model):
   flow_type = models.ForeignKey(FlowType, on_delete=models.CASCADE)
   value = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
