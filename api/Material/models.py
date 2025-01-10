@@ -1,7 +1,7 @@
 from django.db import models
-
+from Utils.models import TimestampedModel
 # Create your models here.
-class Condition(models.Model):
+class Condition(TimestampedModel):
     name = models.CharField(max_length=50, null=False,blank=False, unique=True)
     code = models.CharField(max_length=2, null=False, blank=False, unique=True)
     description = models.CharField(max_length=255, null=False, blank=False)
@@ -11,7 +11,7 @@ class Condition(models.Model):
     def __str__(self):
         return str(self.name)
 
-class MaterialType(models.Model):
+class MaterialType(TimestampedModel):
     name = models.CharField(max_length=30, null=False, blank=False, unique=True)
     description = models.CharField(max_length=255, null=False, blank=False)
     created_in = models.DateTimeField(auto_now_add=True)
@@ -20,7 +20,7 @@ class MaterialType(models.Model):
     def __str__(self):
         return str(self.name)
     
-class Material(models.Model):
+class Material(TimestampedModel):
     name = models.CharField(max_length=100, null=False,blank=False)
     description = models.CharField(max_length=255, null=False, blank=True)
     material_type = models.ForeignKey(MaterialType, on_delete=models.CASCADE)
@@ -28,7 +28,7 @@ class Material(models.Model):
     purchase_price = models.DecimalField(max_digits=6, decimal_places=2)
     purchased_in = models.DateField(null=False, blank=False)
 
-class Product(models.Model):
+class Product(TimestampedModel):
     name = models.CharField(max_length=255, null=False, blank=False)
     description = models.CharField(max_length=255, null=False, blank=False)
     in_stock = models.IntegerField(null=False, blank=False, default=0)

@@ -1,17 +1,16 @@
 from django.db import models
 from User.models import Group, User
+from Utils.models import TimestampedModel
 # Create your models here.
-class EventType(models.Model):
+class EventType(TimestampedModel):
   name = models.CharField(max_length=50, blank=False, null=False, unique=True)
   description = models.CharField(max_length=255)
   price = models.DecimalField(max_digits=10, decimal_places=2, default=00.00)
-  created_in = models.DateTimeField(auto_now_add=True)
-  updated_in = models.DateTimeField(auto_now=True)
 
   def __str__(self):
     return str(self.name)
 
-class Event(models.Model):
+class Event(TimestampedModel):
   FREQUENCY_CHOICES = [
     ('daily', 'Daily'),
     ('weekly', 'Weekly'),
@@ -32,7 +31,7 @@ class Event(models.Model):
   def __str__(self):
     return str(self.event.name)
 
-class EventPresence(models.Model):
+class EventPresence(TimestampedModel):
   event = models.ForeignKey(Event, on_delete=models.CASCADE)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   presence_confirmation = models.BooleanField()

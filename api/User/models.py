@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
+from Utils.models import TimestampedModel
 # Create your models here.
-class Group(models.Model):
+class Group(TimestampedModel):
     name = models.CharField(max_length=30, null=False, blank=False)
     description = models.CharField(max_length=255, null=False, blank=False)
     created_in = models.DateTimeField(auto_now_add=True)
@@ -10,7 +11,7 @@ class Group(models.Model):
     def __str__(self):
         return str(self.name)
     
-class User(models.Model):
+class User(TimestampedModel):
     name = models.CharField(max_length=255, null=False, blank=False)
     username = models.CharField(max_length=30, null=False, blank=False, unique=True)
     password = models.CharField(max_length=30, null=False, blank=False)
@@ -28,7 +29,7 @@ class User(models.Model):
     def check_password(self, raw_password):
         return check_password(raw_password, self.password)
     
-class Athlete(models.Model):
+class Athlete(TimestampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=20, choices=[('M', 'Male'), ('F', 'Female')])
     id_document = models.CharField(max_length=20, null=False, blank=False)
