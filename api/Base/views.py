@@ -5,7 +5,7 @@ from Base import serializers as baseserializers
 # Create your views here.
 class ThemeView(APIView):
    def get(self, request, *args, **kwargs):
-        themes = basemodels.theme.objects.select_related('theme_type').all()
+        themes = basemodels.theme.objects.all()
         serialized_data = baseserializers.ThemeSerializer(themes, many=True).data
 
         # Organizando os temas por tipo
