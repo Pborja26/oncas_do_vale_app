@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django_filters',
     'utils',
     'user',
-    'agenda'
+    'agenda',
+    'finance'
 ]
 
 MIDDLEWARE = [

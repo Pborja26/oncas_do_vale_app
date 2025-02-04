@@ -31,7 +31,7 @@ class Event(InfoModel):
   repeat_until = models.DateField(null=True, blank=True)
 
   def __str__(self):
-     return str(self.id)
+     return str(self.pk)
 
   def save(self, *args, **kwargs):
     is_new = self.pk is None  # Verifica se o evento está sendo criado agora
