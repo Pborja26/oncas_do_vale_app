@@ -1,7 +1,7 @@
 import * as types from "../../utils/global.types";
 
 export interface DividerProps {
-  direction: types.FlexDirection;
+  direction?: types.FlexDirection;
   size?: types.Measurement;
   width?: types.Measurement;
   color?: string;

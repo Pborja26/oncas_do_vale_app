@@ -12,6 +12,7 @@ export interface ButtonProps {
   width?: types.Measurement;
   border?: types.BorderTypes;
   padding?: types.Measurement;
+  gap?: types.Measurement;
   type?: ButtonTypes;
   style?: React.CSSProperties;
   icon?: IconDefinition;
