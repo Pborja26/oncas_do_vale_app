@@ -1,0 +1,1 @@
+export { default as login } from "./loginPage/loginPage";

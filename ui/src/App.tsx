@@ -1,11 +1,20 @@
-import React from 'react';
-import Modal from './components/modal/modal';
+import Modal from "./components/modal/modal";
+import * as pages from "./pages/pagesIndex";
 
 function App() {
+
   return (
-    <div className="App">
-      <Modal/>
-    </div>
+    <>
+      <Modal
+        headder="aaaaa"
+        subtilte="bbbbb"
+        height={"200px"}
+        width={"200px"}
+        padding={"1rem"}
+      >
+        
+      </Modal>
+    </>
   );
 }
 

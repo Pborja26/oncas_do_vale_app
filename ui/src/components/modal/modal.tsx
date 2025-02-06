@@ -1,8 +1,9 @@
 import * as modal from "./modal.styled";
 import Divider from "../divider/divider";
 import Button from "../button/button";
-import { ModalProps } from "./modal.types";
 import Container from "../container/container";
+import Label from "../label/label";
+import { ModalProps } from "./modal.types";
 
 const Modal = ({
   children,
@@ -19,8 +20,21 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <modal.BackDrop>
-      <modal.Container width={"200px"} height={"200px"}>
-
+      <modal.Container 
+        width={width} 
+        height={height}
+        padding={padding}
+        style={style}
+      >
+        {headder && (
+          <Container display="flex" direction="row" align="center" justify="space-between" >
+            <Container direction="column" >
+              <Label label={headder} variant="h2" />
+              <Label label={subtilte} variant="p" />
+            </Container>
+          </Container>
+        )}
+        {children}
       </modal.Container>
     </modal.BackDrop>
   )

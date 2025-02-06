@@ -14,20 +14,22 @@ const Container = ({
     style,
     children
 }: ContainerProps) => {
-    <styled.ContainerComponent
-        display={display}
-        direction={direction}
-        align={align}
-        justify={justify}
-        width={width}
-        height={height}
-        padding={padding}
-        gap={gap}
-        border={border}
-        style={style}
-    >
-        {children}
-    </styled.ContainerComponent>
+    return (
+        <styled.ContainerComponent
+            display={display}
+            direction={direction}
+            align={align}
+            justify={justify}
+            width={width}
+            height={height}
+            padding={padding}
+            gap={gap}
+            border={border}
+            style={style}
+        >
+            {children}
+        </styled.ContainerComponent>
+    )
 }
 
 export default Container;
