@@ -33,7 +33,7 @@ class User(AbstractUser, TimeStampedModel):
 
     def check_password(self, raw_password):
         return check_password(raw_password, self.password)
-    
+
 class Athlete(BaseInfoModel):
     category_choices = [
         ("FEMALE", "Female"),

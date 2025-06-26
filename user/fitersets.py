@@ -11,3 +11,8 @@ class UserFilterSet(filters.FilterSet):
         model = user_models.User
         fields = ["id", "name"]
 
+class AthleteFilterSet(filters.FilterSet):
+
+    class Meta:
+        model = user_models.Athlete
+        fields = ["id"]
